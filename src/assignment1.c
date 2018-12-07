@@ -31,10 +31,19 @@ int get(node *head){
 }
 
 int delete(node *head, int val){
-  return 0;
+  node *a = head;
+  while (a->next != NULL){
+    if(a->val == val) return val;
+    a = a->next;
+  }
+  return -1;
 }
 
 void display(node *head){
+  node *a = head->next;
+  while(a->next != NULL){
+    printf("%d\n", a->val);
+  }
 }
 
 int main(){
