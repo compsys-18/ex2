@@ -1,0 +1,50 @@
+\documentclass{jarticle}
+
+\title{計算機システム演習　第二回レポート}
+\author{17B13541 \and 細木隆豊}
+\date{}
+
+\begin{document}
+ \maketitle
+ 
+ \section{説明}
+ nodeの構造を\ \{int\ val;\ \ struct\ node\ *next;\ \ struct\ node\ *prev;\};\ で必要十分であるとして考えた。
+ また、前後する２つのnodeの"prev"と"next"は互いのnodeのポインタが入るので、２つのnodeのポインタを入れるとその２つをつなぐ関数connectを実装した。
+ 
+ putは新たに"val"に引数のvalをとるnodeを作り、元々の最後のnodeとtailの間にそのnodeを付け加える$($繋ぎ変える$)$ことを行った。失敗の判断は、新たにnodeを作れなかった、tailまたは元々最後のnodeのポインタがNULLの場合にしてある。
+ 
+ getは最初のnodeの"val"を返し、headと二番目のnodeを繋ぐプログラムである。表示した値のnodeは解放するように実装した。データが存在しないとき$($つまりheadとtailしかない$)$場合や、head,最初のnodeのポインタが取れていない場合に$-1$を返すようにした。
+ 
+ delete,displayはheadからtailの間のnodeに、valがあるか確認したり、順に表示したりする関数である。deleteではvalが存在した場合、そのnodeは解放している。
+ 
+ main関数には、randを用いても動作の確認をした。
+ 
+ \section{実行結果}
+ randを用いない場合に実行した結果を以下に載せる。\\
+ 
+ This Queue is initial state.
+ 
+ Add numbers in the following.
+ 
+ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+ 
+ This Queue includes the following.
+ 
+ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+ 
+ Delete odds.
+ 
+ 0, 2, 4, 6, 8,
+ 
+ 11 isn't includes, so return -1
+ 
+ get first term 0
+ 
+ 2, 4, 6, 8,
+ 
+ free all.
+  
+ \section{感想・質問}
+ ポインタの扱い方はだいぶ理解してきてはいるが、よく考えないと未だに合っているのかわからなくなるのでもう少し理解を深める為に自分なりに勉強しようと思う。
+ 
+\end{document}
